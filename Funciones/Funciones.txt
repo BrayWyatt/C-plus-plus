@@ -1,0 +1,33 @@
+¿Qué es una Función?
+
+Una función realiza una tarea concreta y puede ser diseñada, implementada y depurada de manera independiente al resto de código.
+
+La sintaxis básica para la definición de una función en c++ es la siguiente:
+
+tipo nombre(tipo var1, tipo var2.........tipo varn)
+{
+	conjunto de instrucciones;
+}
+
+
+EJEMPLOS DE Funciones
+
+int numMax(int x, int y)
+double intercambio(double x, double y)
+void desplegar(float x, float y)
+
+Como una cuestión de buena forma de programación, el siguiente ordenamiento de instrucciones deberá formar la estructura básica alrededor de la cual se construyan todos sus progrmas en C++:
+
+directivas del preprocesador
+
+prototipos de función
+
+int main()
+{
+	conjuto de instrucciones;
+	return valor
+}
+
+
+definición de funciones
+
