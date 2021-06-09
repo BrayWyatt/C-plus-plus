@@ -1,0 +1,10 @@
+	Agenda Telefonica
+Nombre: luis
+Apellido: martinez
+Telefono: 666666666
+
+
+Nombre: pepe
+Apellido: berraquero
+Telefono: 555555555
+

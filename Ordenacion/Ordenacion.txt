@@ -1,0 +1,265 @@
+Ordenacion en c++:
+
+
+-Introducion: muchas actividades humanas requieren que a diferentes colecciones de elementos
+utilizados se pongan en un orden espécifico.
+
+Ejemplo en una oficina de correos se deben ordenar los paquetes por codigo postal para que su entrega sea más rápida.
+
+
+Por estas circunstancia  una de las tareas que realizan más frecuentemente las computadoras en el procesamiento de datos es la ordenación.
+
+El estudio de diferentes métodos de ordenación es una tarea intrínsecamente interesante desde un punto de vista teórico y naturalmente,práctico.
+
+-------------------------------------------------------------------------------------------
+
+Ordenación:
+
+- La ordenación de datos (sort en ingles) es una operación consistente en disponer un conjunto de datos en algún determinado orden(ascendente o descendentemente).
+
+- Una coleccion de datos puede ser alamcenada en memoria central o en archivos de datos externos guardados en unidades de alamacenamiento(usb, dvd, etc..). Cuando los datos se guardan en memoria principal,(un arreglo, una lista enlazada o un arbol), se denomina ordenación interna;
+Estos datos se almacenan exclusivamente para tratamientos internos que se utilizan para gestión masiva de datos y se guardan en arreglos de una o varias dimensiones. Si los datos están alamacenados en un archivo, el proceso de ordenación externa. Este capitulo estudia los métodos de ordenación interna.
+
+
+- Todos los métodos de este capitulo, normalmente se ordena de modo ascendente sobre listas(arreglos unidimensionales). Se suelen dividir en dos grandes grupos:
+
+	a- Ordenamientos Directos(básicos) ------> burbuja,selección,insercción.
+	b- Ordenamiento Indirectos(Avanzados)----> shell,quick,sort,merge sort,radiz sort.
+
+
+
+En el caso de lisas pequeñas, los métodos directos se muestran eficientes, sobre todo porque los algoritmos son sencillos: su uso es muy frecuente. Sin embargo, en listas grandes estos métodos se muestran ineficaces y es preciso recurrir a los métodos avanzados.
+
+-------------------------------------------------------------------------------------------
+
+Método Burbuja: Es eun sencillo algoritmo de ordenamiento. Funciona revisando cada elemento de la lista que va a ser ordenada con el siguiente, intercambiándolos de pocisión si están e orden equivocado. Es necesario revisar varias varias veces toda la lista hasta que no se necesiten más intercámbios, lo cual significa que la lista está ordenada.
+
+Ejemplo:
+
+4 5 2 1 3
+
+si
+
+numeroActual< numeroSiguiente.
+
+el array de numero la primera vez ejecutado comparando si 5 es mayor que algunos numeros, el array queda asi:
+
+4 2 1 3 5
+
+el array de numero la primera vez ejecutado comparando si 2 es mayor que algunos numeros, el array queda asi:
+
+2 1 3 4 5
+
+Para finalizar este método ordenamos los numeros, comparando y ordenando hasta que de el resultado de su orden que es:
+
+1 2 3 4 5
+
+--------------------------------------------------------------------------------------------
+Ordenamiento por inserccion
+
+Es una manera muy natural de ordenar para ser humano y puede usarse fácilmente para ordenar u n mazo de cartas numeradas en forma arbitraria. Requiere O(n^2) operaciones para ordenar una lista de n elementos.
+
+
+Ejemplo:
+
+5 3 4 1 2
+
+Para este tipo de ordenamiento tenemos que comprobar si el elemento de su izquierda ya es menor que el.
+
+
+SI numeroIzq > numeroActual
+cambio
+ 
+
+Esto hace que el arreglo avance de pocision hasta que queda de esta forma:
+1 2 3 4 5
+
+-----------------------------------------------------------------------------------------
+
+Ordenamiento por seleccion
+
+Es un algoritmo de ordenamiento que requiere O(n^2) operaciones para ordenar una lista de n numeros. Su funcionamiento es el siguiente:
+
+1. Buscar el mínimo elemento de la lista.
+2. Intercambiar con el primer elemento.
+3. Buscra el mínimo del resto de la lista
+4. Intercambiar con el segundo.
+5. Y asi sucesivamente.
+
+Ejemplo:
+
+4 3 1 5 2
+! ! ! ! !
+0 1 2 3 4
+
+los ! indican los subindices de los numeros
+
+Ahora seria asi:
+
+1 2 3 4 5
+! ! ! ! !
+0 1 2 3 4
+
+Gracias a los subindices se va moviento tanto sumando o restando hasta que las posiciones queden totalmente ordenadas.
+
+------------------------------------------------------------------------------------------
+Ordenación Shell:
+
+La ordenacion shell debe el nombre a su inventor Donal L. Shell. Se suele denominar también ordenación por insercción con incrementos decrecientes. Se considera que es una mejora del método de insercción directa.
+
+En el algoritmo de insercción, cada elemento se compara con los elementos contiguos de su izquierda, uno tras otro. Si el elemento a insertar es el más pequeño hay que realizar muchas comparaciones antes de colocarlo en su lugar definitivo. El algoritmo de Shell modifica los saltos contiguos por saltos de mayor tamaño y con ello consigue que la ordenación sea más rapida. Generalmente, se toma como un salto incial n/2 (siendo n el numero de elementos), luego en cada iteración se reduce el salto a la mitad, hasta que el salto es de tamaño 1.
+
+
+Los pasos a seguir por el algoritmo para una lista de de n elementos:
+
+
+1- Se divide la lista orginial en n/2 grupos de dos, considerados un incremento o saltp entre los dos elementos de n/2.
+
+
+2- Se clasifca cada grupo por separado, comparando las parejas de elementos y si no están ordenados se intercambian.
+
+3- Se divide ahora la lista en la mitad de grupos(n/4), con un salto entre los elementos tambien mitad(n/4), y nuevamente se clasifica cada grupo por separado.
+
+
+4- Asi sucesivamente, se sigue dividiendo la lista en la mitad de grupos que en el recorrido anterior con un salto descendente en la mitad que el salto anterior, y luego clasificando cada grupo por separado.
+
+
+5. El algoritmo termina cuando el tamaño del salto es 1.
+
+
+Ejemplo:
+
+Tenemos esta coleccion de numeros y queremos ordenarla:
+
+6 1 5 2 3 4 0
+
+
+salto = 3
+
+        si(a[j] <= a[k]) Entonces arreglo ordenado
+
+	sino Intercambio.
+
+
+6 <=2 ? NO - Se intrecambia el 6 por el 2.
+
+2 1 5 6 3 4 0
+
+Se va haciendo sucesivamente hasta que quede de la siguiente forma
+
+0 1 2 3 4 5 6
+
+-------------------------------------------------------------------------------------------
+
+Ordenación Rápida (QuickSort):
+
+El fundamento del algoritmo es simple se basa en la división de la lista en particiones a ordenar, en definitiva aplica la técnica "divide y venceras". El método es posiblemente el más pequeño de código, más rapido de media, mas elegante y más interesante y eficiente de los algoritmos conocidos de ordenación.
+
+El algoritmo divide los n elementos de la lista a ordenar en dos partes o participaciones separadas por un elemento: una partición izquierda, un elemento central denominado pivote, y una participación derecha.
+
+La participación se hace de tal forma que todos los elementos de la primera sublista (participación izquierda) son menores que todos los elementos de la segunda sublista (participación derecha). Las dos sublistas se ordenan entonces independientemente.
+
+
+Algoritmo QuickSort:
+
+1. Seleccionar el elemento central de a[] como pivote.
+
+2. Dividir los elementos restantes en participaciones izquierda y derecha de modo que ningún elemento de la izquierda tenga una clave mayor que el pivote y que ningún elemento a la derecha tenga una clave más pequeña que la del pivote.
+
+3. Ordenar la partición izquierda utilizando quickSort recursivamente.
+
+4. Ordenar la partición derecha utilizando quickSort recursivamente.
+
+5. La solución es partición izquierda seguida por el pivote y la participación derecha.
+
+
+Ejemplo
+
+8 3 6 4 2 5 7 1
+! ! ! ! ! ! ! !
+0 1 2 3 4 5 6 7
+
+pocisión central = (primero + ultimo)/2;
+pocisión centarl = 3;
+
+pivote = a[central];
+pivote= 4;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
